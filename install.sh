@@ -1,2 +1,2 @@
 #!/bin/sh
-sudo chef-solo -c /home/csocprt01/python-self/solo.rb -j /home/csocprt01/python-self/python.json --log-level debug > logFile
+sudo chef-solo -c /Users/sivabalivada/python-self/solo.rb -j /Users/sivabalivada/python-self/python.json --log-level debug > logFile

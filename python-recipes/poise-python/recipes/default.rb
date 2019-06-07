@@ -17,8 +17,8 @@
 # Default runtimes, last one will be the default.
 python_runtime 'pypy' if node['poise-python']['install_pypy']
 python_runtime '3' if node['poise-python']['install_python3']
-python_runtime '2' if node['poise-python']['install_python2']
-package ['httpd', 'gcc', 'gcc-c++', 'nfs-utils'] do
-  action :install
-end
-pip_requirements '/home/csocprt01/python-self/requirements.txt'
+#python_runtime '2' if node['poise-python']['install_python2']
+#package ['httpd', 'gcc', 'gcc-c++', 'nfs-utils'] do
+#  action :install
+#end
+pip_requirements '/Users/sivabalivada/python-self/requirements.txt'
