@@ -1,0 +1,7 @@
+[2019-06-06T14:49:41+00:00] DEBUG: Reading products and relationships...
+[2019-06-06T14:49:41+00:00] DEBUG: Successfully read products and relationships
+[2019-06-06T14:49:41+00:00] DEBUG: Searching for the following licenses: ["infra-client", "inspec"]
+[2019-06-06T14:49:41+00:00] DEBUG: Found license chef_infra_client at /etc/chef/accepted_licenses/chef_infra_client
+[2019-06-06T14:49:41+00:00] DEBUG: Found license inspec at /etc/chef/accepted_licenses/inspec
+[2019-06-06T14:49:41+00:00] DEBUG: Missing licenses remaining: []
+[2019-06-06T14:49:41+00:00] DEBUG: All licenses present

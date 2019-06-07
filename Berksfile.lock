@@ -1,0 +1,15 @@
+DEPENDENCIES
+  poise-python (~> 1.4.0)
+  yum (~> 5.1.0)
+
+GRAPH
+  poise (2.8.2)
+  poise-archive (1.5.0)
+    poise (~> 2.6)
+  poise-languages (1.4.0)
+    poise (~> 2.5)
+    poise-archive (~> 1.0)
+  poise-python (1.4.0)
+    poise (~> 2.7)
+    poise-languages (~> 1.3)
+  yum (5.1.0)
