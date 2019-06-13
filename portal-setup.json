@@ -1,0 +1,8 @@
+{
+     "run_list": [
+	"recipe[yum]",
+        "recipe[poise-python]",
+        "recipe[java]",
+        "recipe[nifi]"
+    ]
+}
