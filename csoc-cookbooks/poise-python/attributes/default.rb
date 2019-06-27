@@ -22,4 +22,4 @@ default['poise-python']['options'] = {}
 default['poise-python']['install_python2'] = true
 default['poise-python']['install_python3'] = false
 default['poise-python']['install_pypy'] = false
-override['poise-python']['options']['pip_version'] = true
+override['poise-python']['options']['pip_version'] = "8.1.2"
