@@ -1,16 +1,8 @@
 # nginx Cookbook
 
-[![Cookbook Version](https://img.shields.io/cookbook/v/nginx.svg)](https://supermarket.chef.io/cookbooks/nginx)
-[![Build Status](https://img.shields.io/circleci/project/github/sous-chefs/nginx/master.svg)](https://circleci.com/gh/sous-chefs/nginx)
-[![OpenCollective](https://opencollective.com/sous-chefs/backers/badge.svg)](#backers)
-[![OpenCollective](https://opencollective.com/sous-chefs/sponsors/badge.svg)](#sponsors)
-[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](https://opensource.org/licenses/Apache-2.0)
+[![Cookbook](http://img.shields.io/cookbook/v/nginx.svg)](https://supermarket.chef.io/cookbooks/nginx) [![Build Status](https://travis-ci.org/chef-cookbooks/nginx.svg?branch=master)](https://travis-ci.org/chef-cookbooks/nginx)
 
 Installs nginx from package OR source code and sets up configuration handling similar to Debian's Apache2 scripts.
-
-## Maintainers
-
-This cookbook is maintained by the Sous Chefs. The Sous Chefs are a community of Chef cookbook maintainers working together to maintain important cookbooks. If you’d like to know more please visit [sous-chefs.org](https://sous-chefs.org/) or come chat with us on the Chef Community Slack in [#sous-chefs](https://chefcommunity.slack.com/messages/C2V7B88SF).
 
 ## Requirements
 
@@ -99,7 +91,6 @@ Generally used attributes. Some have platform specific values. See `attributes/d
 - `node['nginx']['sts_max_age']` - Enable Strict Transport Security for all apps (See: <http://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security>). This attribute adds the following header: Strict-Transport-Security max-age=SECONDS to all incoming requests and takes an integer (in seconds) as its argument.
 - `node['nginx']['default']['modules']` - Array specifying which modules to enable via the conf-enabled config include function. Currently the only valid value is "socketproxy".
 - `node['nginx']['load_modules']` - Array of paths to modules to dynamically load on nginx startup using the `load_module` directive. Default is `[]`.
-- `node['nginx']['pcre_jit']` - Enables or disables the use of “just-in-time compilation” (PCRE JIT) for the regular expressions known by the time of configuration parsing. . Default is false.
 
 #### authorized_ips module
 
@@ -200,10 +191,6 @@ These attributes are used in the `nginx::passenger` recipe.
 - `node['nginx']['passenger']['max_requests']` - maximum requests (default=`0`)
 - `node['nginx']['passenger']['nodejs']` - Nodejs path for Passenger to use (default=nil)
 - `node['nginx']['passenger']['show_version_in_header']` - Show passenger version in HTTP headers (default=`on`)
-- `node['nginx']['passenger']['disable_anonymous_telemetry']` - Turn on disabling of anonymous telemetry (default=`off`, this will send telemetry data. Since Passenger 6.0)
-- `node['nginx']['passenger']['anonymous_telemetry_proxy']` - Set an intermediate proxy for anonymous telemetry (default=`nil`. Syntax: `scheme://user:password@proxy_host:proxy_port`. Since Passenger 6.0)
-
-Read more about the anonymous telemetry reporting [here](https://www.phusionpassenger.com/docs/advanced_guides/in_depth/ruby/anonymous_telemetry_reporting.html).
 
 Basic configuration to use the official Phusion Passenger repositories:
 
@@ -279,7 +266,7 @@ Enable or disable a Server Block in `#{node['nginx']['dir']}/sites-available` by
 - `enable` - Enable the nginx site (default)
 - `disable` - Disable the nginx site
 
-### Properties
+### Properties:
 
 - `site_name` - (optional) Name of the site to enable. By default it's assumed that the name of the nginx_site resource is the site name, but this allows overriding that.
 - `template` - (optional) Path to the source for the `template` resource.
@@ -294,7 +281,7 @@ Enable or disable a Stream Block in `#{node['nginx']['dir']}/streams-available` 
 - `enable` - Enable the nginx stream (default)
 - `disable` - Disable the nginx stream
 
-### Properties
+### Properties:
 
 - `stream_name` - (optional) Name of the stream to enable.
 - `template` - (optional) Path to the source for the `template` resource.
@@ -363,7 +350,7 @@ Enable or disable a Server Block in `#{node['nginx']['dir']}/sites-available` by
 - `enable` - Enable the nginx site (default)
 - `disable` - Disable the nginx site
 
-### Properties
+### Properties:
 
 - `name` - (optional) Name of the site to enable. By default it's assumed that the name of the nginx_site resource is the site name, but this allows overriding that.
 - `template` - (optional) Path to the source for the `template` resource.
@@ -379,27 +366,22 @@ node.run_state['nginx_configure_flags'] =
   node.run_state['nginx_configure_flags'] | ['--with-SOMETHING', "--with-SOME_OPT='things'"]
 ```
 
-## Contributors
+## Maintainers
 
-This project exists thanks to all the people who [contribute.](https://opencollective.com/sous-chefs/contributors.svg?width=890&button=false)
+This cookbook is maintained by Chef's Community Cookbook Engineering team. Our goal is to improve cookbook quality and to aid the community in contributing to cookbooks. To learn more about our team, process, and design goals see our [team documentation](https://github.com/chef-cookbooks/community_cookbook_documentation/blob/master/COOKBOOK_TEAM.MD). To learn more about contributing to cookbooks like this see our [contributing documentation](https://github.com/chef-cookbooks/community_cookbook_documentation/blob/master/CONTRIBUTING.MD), or if you have general questions about this cookbook come chat with us in #cookbok-engineering on the [Chef Community Slack](http://community-slack.chef.io/)
 
-### Backers
+## License
 
-Thank you to all our backers!
+```
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
-![https://opencollective.com/sous-chefs#backers](https://opencollective.com/sous-chefs/backers.svg?width=600&avatarHeight=40)
+    http://www.apache.org/licenses/LICENSE-2.0
 
-### Sponsors
-
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website.
-
-![https://opencollective.com/sous-chefs/sponsor/0/website](https://opencollective.com/sous-chefs/sponsor/0/avatar.svg?avatarHeight=100)
-![https://opencollective.com/sous-chefs/sponsor/1/website](https://opencollective.com/sous-chefs/sponsor/1/avatar.svg?avatarHeight=100)
-![https://opencollective.com/sous-chefs/sponsor/2/website](https://opencollective.com/sous-chefs/sponsor/2/avatar.svg?avatarHeight=100)
-![https://opencollective.com/sous-chefs/sponsor/3/website](https://opencollective.com/sous-chefs/sponsor/3/avatar.svg?avatarHeight=100)
-![https://opencollective.com/sous-chefs/sponsor/4/website](https://opencollective.com/sous-chefs/sponsor/4/avatar.svg?avatarHeight=100)
-![https://opencollective.com/sous-chefs/sponsor/5/website](https://opencollective.com/sous-chefs/sponsor/5/avatar.svg?avatarHeight=100)
-![https://opencollective.com/sous-chefs/sponsor/6/website](https://opencollective.com/sous-chefs/sponsor/6/avatar.svg?avatarHeight=100)
-![https://opencollective.com/sous-chefs/sponsor/7/website](https://opencollective.com/sous-chefs/sponsor/7/avatar.svg?avatarHeight=100)
-![https://opencollective.com/sous-chefs/sponsor/8/website](https://opencollective.com/sous-chefs/sponsor/8/avatar.svg?avatarHeight=100)
-![https://opencollective.com/sous-chefs/sponsor/9/website](https://opencollective.com/sous-chefs/sponsor/9/avatar.svg?avatarHeight=100)
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```
