@@ -8,7 +8,7 @@ pipeline {
     }
     stage('deploy') {
       steps {
-        sh 'cp -r /var/lib/jenkins/workspace/chef-repo ${project.home}/chef-repo'
+        sh 'cp -r /var/lib/jenkins/workspace/chef-repo ${PROJECT}/chef-repo'
       }
     }
   }
