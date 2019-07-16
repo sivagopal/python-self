@@ -6,9 +6,5 @@ pipeline {
         sh '/usr/bin/pip install --user -r requirements.txt'
       }
     }
-    stage('deploy') {
-      steps {
-      }
-    }
   }
 }
