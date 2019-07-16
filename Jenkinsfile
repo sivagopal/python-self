@@ -7,7 +7,9 @@ pipeline {
       }
     }
     stage('deploy') {
-       sh 'chef-solo -c ${HOME}/chef-repo/solo.rb -j ${HOME}/chef-repo/portal-setup.json --log-level debug > logFile'
+      steps {
+        sh 'chef-solo -c ${HOME}/chef-repo/solo.rb -j ${HOME}/chef-repo/portal-setup.json --log-level debug > logFile'
+      }
     }
   }
 }
