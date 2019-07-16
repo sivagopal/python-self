@@ -8,7 +8,7 @@ pipeline {
     }
     stage('deploy') {
       steps {
-        sh 'cp -r /var/lib/jenkins/workspace/python-self ${HOME}/chef-repo'
+        sh 'cp -r /var/lib/jenkins/workspace/chef-repo ${HOME}/chef-repo'
       }
     }
   }
