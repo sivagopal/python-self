@@ -8,7 +8,6 @@ pipeline {
     }
     stage('deploy') {
       steps {
-        sh 'sudo cp -r /var/lib/jenkins/workspace/chef-repo /home/csocprt01/'
       }
     }
   }
