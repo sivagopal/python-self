@@ -18,7 +18,11 @@
 python_runtime 'pypy' if node['poise-python']['install_pypy']
 python_runtime '3' if node['poise-python']['install_python3']
 python_runtime '2' if node['poise-python']['install_python2']
+python_runtime '2' do
+ pip_version '8.1.2'
+end
 package ['httpd', 'gcc', 'gcc-c++', 'nfs-utils'] do
   action :install
 end
+python_virtualenv '/home/csocprt01/portproj/venv' 
 pip_requirements '/home/csocprt01/python-self/requirements.txt'

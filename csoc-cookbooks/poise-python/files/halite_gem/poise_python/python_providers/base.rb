@@ -28,7 +28,8 @@ module PoisePython
       # @api private
       def self.default_inversion_options(node, new_resource)
         super.merge({
-          pip_version: new_resource.pip_version,
+          #pip_version: new_resource.pip_version,
+          pip_version: '9.0.3',
           setuptools_version: new_resource.setuptools_version,
           version: new_resource.version,
           virtualenv_version: new_resource.virtualenv_version,
