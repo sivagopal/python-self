@@ -3,13 +3,15 @@ pipeline {
   stages {
     stage('check chef-client exists') {
       steps {
-	def chefclientExists = fileExists '/usr/bin/chef-client'
-        if (chefclientExists) {
-           echo 'chef client exists proceeding'
-        }
-        else {
-          error 'no chef exists in box'
-        }
+        script {
+		def chefclientExists = fileExists '/usr/bin/chef-client'
+		if (chefclientExists) {
+		   echo 'chef client exists proceeding'
+		}
+		else {
+		  error 'no chef exists in box'
+		}
+	}
       }
     }
     stage('build') {
@@ -19,7 +21,9 @@ pipeline {
     }
     stage('deploy') {
       steps {
-        sh 'sudo chef-solo -c ${HOME}/chef-repo/solo.rb -j ${HOME}/chef-repo/portal-setup.json --log-level debug > logFile'
+        script{
+          sh 'sudo chef-solo -c ${HOME}/chef-repo/solo.rb -j ${HOME}/chef-repo/portal-setup.json --log-level debug > logFile'
+        }
       }
     }
   }
